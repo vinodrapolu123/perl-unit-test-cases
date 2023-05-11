@@ -9,7 +9,7 @@ use Test::Fatal;
 my $ret = 1; #SampleModule::check_count(1);
 is ($ret, 1, "Returned Value $ret");
 
-$ret = 2; #SampleModule::check_count(2);
+$ret = 3; #SampleModule::check_count(2);
 is ($ret, 2, "Returned Value $ret");
 
 $ret = 3; #SampleModule::check_count(3);
