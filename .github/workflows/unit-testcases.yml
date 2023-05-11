@@ -7,5 +7,7 @@ jobs:
             - uses: actions/checkout@v3
             - run: sudo apt-get install -y libcam-pdf-perl
             - run: sudo cpan install Test::Fatal
-            - run: pwd
+            - run: |
+                    pwd
+                    ls -ltr
             - run: prove
