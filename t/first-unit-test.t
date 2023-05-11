@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Test::More;
 use Test::Fatal;
-use lib "/home/runner/work/perl-unit-test-cases/perl-unit-test-cases";
+use lib ".";
 use SampleModule;
 
 my $ret = SampleModule::check_count(1);
