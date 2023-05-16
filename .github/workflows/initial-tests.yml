@@ -1,0 +1,57 @@
+name: "Unit test cases"
+on: workflow_dispatch
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install prove required modules
+        run: |
+              sudo apt-get update -y
+              sudo apt-get install -y libcam-pdf-perl expat make gcc libexpat1-dev wget pari-gp apache* libdbd-sybase-perl zlib1g-dev libxml2-dev libxslt* libxml*
+              sudo apt-get install -y libgd-dev
+              sudo cpan install YAML Config::IniFiles Test::Fatal TAP::Parser Crypt::CBC JSON File::Slurp Date::Calc Sub::Override XML::Parser
+              sudo cpan install XML::Simple FCGI HTML::Entities CPAN::DistnameInfo Business::CreditCard Crypt::OpenSSL::AES Crypt::OpenSSL::AES
+              sudo cpan install Geo::IP IP::Geolocation::MMDB GD GD::Text:Wrap NetAddr::IP HTML::Template::Pro Apache::Session
+              
+              wget https://cpan.metacpan.org/authors/id/M/MU/MUIR/modules/Time-ParseDate-2015.103.tar.gz
+              tar -zxvf Time-ParseDate-2015.103.tar.gz
+              cd Time-ParseDate-2015.103/
+              sudo perl Makefile.PL
+              sudo make
+              sudo make install
+              cd ..
+              sudo wget https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Email-Valid-1.203.tar.gz
+              tar -zxvf Email-Valid-1.203.tar.gz
+              cd Email-Valid-1.203
+              sudo perl Makefile.PL
+              sudo make
+              sudo make install
+              cd ..
+
+              sudo cpan install Time::Timezone              
+              sudo cpan install Archive::Zip Crypt::RSA File::MMagic SOAP::Lite Switch Hash::MultiKey DBI
+              
+              sudo wget https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0208.tar.gz
+              sudo tar -zxvf XML-LibXML-2.0208.tar.gz
+              cd XML-LibXML-2.0208
+              sudo perl Makefile.PL
+              sudo make
+              sudo make install
+              cd ..
+              
+              sudo wget https://cpan.metacpan.org/authors/id/S/SH/SHGUN/CGI_Lite-1.8.tar.gz
+              sudo tar -zxvf CGI_Lite-1.8.tar.gz
+              cd CGI_Lite-1.8
+              sudo perl -pi -e 's/MAN3PODS/#MAN3PODS/g' Makefile.PL
+              sudo perl Makefile.PL
+              sudo make
+              sudo make install
+              cd ..
+              
+              sudo wget https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-2.002001.tar.gz
+              sudo tar -zxvf XML-LibXSLT-2.002001.tar.gz
+              cd XML-LibXSLT-2.002001
+              sudo perl Makefile.PL
+              sudo make
+              sudo make install
+              cd ..
