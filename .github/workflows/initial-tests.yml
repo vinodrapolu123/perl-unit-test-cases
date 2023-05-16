@@ -4,14 +4,16 @@ jobs:
   unit-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Install prove required modules
+      - name: Install required modules
         run: |
               sudo apt-get update -y
               sudo apt-get install -y libcam-pdf-perl expat make gcc libexpat1-dev wget pari-gp apache* libdbd-sybase-perl zlib1g-dev libxml2-dev libxslt* libxml*
               sudo apt-get install -y libgd-dev
+      - name: Install Perl Modules
+        run: |
               sudo cpan install YAML Config::IniFiles Test::Fatal TAP::Parser Crypt::CBC JSON File::Slurp Date::Calc Sub::Override XML::Parser
               sudo cpan install XML::Simple FCGI HTML::Entities CPAN::DistnameInfo Business::CreditCard Crypt::OpenSSL::AES Crypt::OpenSSL::AES
-              sudo cpan install Geo::IP IP::Geolocation::MMDB GD GD::Text:Wrap NetAddr::IP HTML::Template::Pro Apache::Session
+              sudo cpan install Geo::IP IP::Geolocation::MMDB GD GD::Text:Wrap NetAddr::IP HTML::Template::Pro Apache::Session Alien::Libxml2
               
               wget https://cpan.metacpan.org/authors/id/M/MU/MUIR/modules/Time-ParseDate-2015.103.tar.gz
               tar -zxvf Time-ParseDate-2015.103.tar.gz
